@@ -1,0 +1,126 @@
+
+
+{if $verificado} 
+<h2>Cuenta verificada</h2>
+
+
+
+Su cuenta está verificada y usted ya ha realizado corectamente todos los trámites para poder votar.
+
+<hr>
+
+
+{if $votaciones|@count==0}
+
+Actualmente no hay ninguna votación en marcha.
+<p>
+Cuando se ponga en marcha una votación será avisado por correo electrónico.
+{else}
+<h2>Hay Votaciones disponibles:</h2>
+<table>
+  {foreach from=$votaciones item=i}
+   <tr><td style="font-size: 15pt;font-weight: bold;">
+     <a href="/votacion/{$i.id}/">
+     {$i.titulo}</a>
+<p style="font-size: 10pt;font-weight: normal;">
+     <a href="/transparencia/{$i.id}/">
+     Participacion</a></p>
+
+</td><td> 
+
+
+<span id=atras{$i.id}>{$i.timefin}</span>
+
+
+</td>
+<td><a class=button href='/votacion/{$i.id}/'>VOTAR</a>
+    </td></tr>
+
+
+
+  {/foreach}
+</table>
+
+
+<script>
+{literal}$(function() {{/literal}
+{foreach from=$votaciones item=i}
+
+  countdown("atras{$i.id}",{$i.timefin})
+
+
+{/foreach}
+{literal}});{/literal}
+</script>
+
+{/if}
+<br>
+
+{if $mesas|@count > 0}
+<h3>Mesas</h3>
+{foreach from=$mesas item=m}
+<a class=button href="/mesa/{$m.votacion}/{$m.id}/">Mesa {$m.id}: <strong>{$m.nombre}</strong></a><br>
+{/foreach}
+<br>
+{/if}
+
+ {else} 
+
+{if $dataverificacion.solicitada}
+
+<h2>Verificación pendiente de revisar</h2>
+Fecha de solicitud de verificación: {$dataverificacion.solicitada}<br>
+ Método de verificacion: {$dataverificacion.tipo}<br>
+{if $dataverificacion.tipo=="presencial"}
+<br>Acuda a uno de nuestros actos y muestre su DNI y el siguiente código:
+
+<div style="font-size: 20pt;"> {$dataverificacion.data}</div>
+{/if}
+
+Puede anular su solicitud de verificación y iniciar una nueva:
+<br>
+<a href="/verificar/desverificar/" class=button>Anular Solicitud</a>
+
+
+{else}
+
+
+
+<h3>Su cuenta no está verificada</h3>
+<p>
+<strong>Necesita verificar su cuenta, seleccione un método de verificación</strong>
+</p><p>
+Pueden votar todas las personas mayores de 16 años nacidas o residentes en Jerez.
+</p><p>
+
+Es necesario aportar Documento Nacional de Identidad POR DELANTE Y POR DETRÁS o permiso de residencia, en el caso de que en el documento
+no estuviese expedido en Jerez, o no apareciese Jerez como doimicilio o ciudad de nacimiento será necesario un documento
+que demuestre la residencia en Jerez (recibo de luz/agua, pago de impuestos, etc.)
+
+
+</p><p>
+
+<strong>Métodos de verificación</strong>
+
+</p><p>
+
+{foreach from=$verificaciones key=k item=v}
+
+<div style="margin: 5px; border: #000 1px solid; padding: 20px;"> 
+<strong>{$v.titulo}</strong>
+<br>
+{$v.txt}
+<br>
+
+<a class=button href="/verificar/{$v.tipo}/">Verificar</a>
+</div>
+
+{/foreach}
+
+</p><p>
+</p><p>
+</p>
+
+
+{/if}
+{/if}
