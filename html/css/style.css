@@ -1,0 +1,30 @@
+body {
+background-color: #ddd;
+font-size: 12px;
+}
+
+.pie {
+margin-top: 20px;
+background-color: #eee;
+}
+
+.caja {
+
+}
+
+.cabecera {
+background-color: #f3f3f3;
+
+}
+
+
+.container {
+background-color: #fff;
+
+}
+
+.aviso {
+  border: solid 1px #000;
+  padding: 2px;
+margin: 1px;
+}

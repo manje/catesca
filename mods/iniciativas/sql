@@ -1,0 +1,61 @@
+drop table propuesta;
+CREATE TABLE propuesta (
+  id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  autor int(11) UNSIGNED NOT NULL,
+  titular varchar(250),
+  texto text,
+  categoria smallINT(5) UNSIGNED default 0,
+  votosok int(11) UNSIGNED default 0,
+  votosko int(11) UNSIGNED default 0,
+  valor INT(11) UNSIGNED default 0,
+  primary key (id)
+) ENGINE=InnoDB CHARSET=utf8;
+
+drop table propuesta_voto;
+
+create table propuesta_voto (
+  usuario int(11) UNSIGNED,
+  propuesta int(11) UNSIGNED,
+  voto tinyint(3) UNSIGNED default 0,
+  primary key (usuario,propuesta)
+);
+
+create table propuesta_colaborador (
+  usuario int(11) UNSIGNED,
+  propuesta int(11) UNSIGNED,
+  primary key (usuario,propuesta)
+);
+
+
+
+drop table  categorias;
+create table categorias (
+  id smallINT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  ncorto char(50),
+  titulo varchar(250),
+  descripcion text,
+  orden SMALLINT(5) UNSIGNED default 100,
+  nivel TINYINT(3) UNSIGNED default 0,
+  borrado tinyint(3) UNSIGNED default 0,
+  primary key (id)
+);
+
+
+
+insert into categorias values ("NULL","xx","Iniciativa institucional","Iniciativas que tienen la finalidad de ser ejecutadas a través del grupo municipal del Ayuntamiento. Ya sea a través del pleno (reglamentos, mociones, etc.) o para presentarlo al gobierno municipal a través de los concejales de Ganemos Jerez. 
+",100,0,0);
+insert into categorias values ("NULL","xx","Proyecto","Son iniciativas ciudadanas impulsadas por Ganemos o de manera conjunta con otras fuerzas políticas y sociales, o en las que Ganemos participa y que no tienen directamente que ver con la actividad en el Ayuntamiento
+",100,0,0);
+insert into categorias values ("NULL","xx","Petición de comparecencia","Cualquier vecino/organización puede solicitar que algún concejal de Ganemos Jerez 
+",100,0,0);
+insert into categorias values ("NULL","xx","Propuesta interna de Ganemos Jerez","Propuestas que afectan al funcionamiento de Ganemos jerez, cambios en la organización interna de Ganemos Jerez, creación de comisiones, métodos de toma de decisiones, pronunciamientos públicos de Ganemos Jerez, firma/apoyo de llamamientos y convocatorias,
+",100,0,0);
+insert into categorias values ("NULL","xx","Organización interna","Propuestas solo visibles y votables por miembros activos de Ganemos Jerez
+",100,0,0);
+
+
+
+
+
+
+
