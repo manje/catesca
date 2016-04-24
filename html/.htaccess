@@ -1,6 +1,3 @@
-
 RewriteEngine on
 RewriteRule ^(.*)/$ /?carpeta=$1 [qsa]
-#nc
-
 AddDefaultCharset UTF-8
