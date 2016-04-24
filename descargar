@@ -1,0 +1,8 @@
+cd clases
+wget https://github.com/smarty-php/smarty/archive/v2.6.28.tar.gz
+wget https://github.com/PHPMailer/PHPMailer/archive/master.zip
+unzip master.zip
+tar -xvzf v2.6.28.tar.gz
+rm master.zip
+rm v2.6.28.tar.gz
+
