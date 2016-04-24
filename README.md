@@ -59,8 +59,11 @@ Ejecutar el script "descargar", que descargará un par de librerías de PHP
 Una vez hecha la instalación el primer usuarios registrado sera administrador del sitio, a partir de entonces para poder usar todas las funcionalidades debe acceder a unos módlos para configurar la herramienta, no hay menu para estas operaciones pero se pueden acceder a través de las siguientes urls:
 
 /adminusuarios/admin/ : Gestionar administradores del sitio
+
 /comisiones/ : Para crear las distintas comisiones y añadir administradores a ella
+
 /categorias/ : Para crear las distintas categorias para las iniciativas.
+
 /adminusuarios/presencial/ : Para habilitar a usarios a hacer la verificación de DNI
 
 
