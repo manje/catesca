@@ -34,7 +34,6 @@
    <a id=btnseleccionar  class="btn btn-primary btn-lg btn-block">Seleccionar</a><br>
 {/if}
 
-
 {if $usuario.id == 0}
    <strong>Regístrese y conviértase en colaborador de esta iniciativa</strong>
 {else}
@@ -58,27 +57,8 @@
     <a {if $IsColaborador}style="display:none;"{/if} id=divnotiscol href="#" class="btn btn-primary  btn-block">Hazte Colaborador</a>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {/if}
-
+<br>
 {$p->numcolaboradores|number_format:0:',':'.'} colaborador@s
 
 
